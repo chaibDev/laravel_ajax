@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD App Laravel 10 & Ajax</title>
+    <title>CRUD Laravel 10 & Ajax</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css' />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css' />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css" />
 
 </head>
-{{-- add new employee modal start --}}
+{{-- Début du modul Ajout employé(e)s --}}
 <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Ajout Employé(e)</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="#" method="POST" id="add_employee_form" enctype="multipart/form-data">
@@ -25,12 +25,12 @@
                 <div class="modal-body p-4 bg-light">
                     <div class="row">
                         <div class="col-lg">
-                            <label for="fname">First Name</label>
-                            <input type="text" name="fname" class="form-control" placeholder="First Name" required>
+                            <label for="fname">Prénom</label>
+                            <input type="text" name="fname" class="form-control" placeholder="Prénom" required>
                         </div>
                         <div class="col-lg">
-                            <label for="lname">Last Name</label>
-                            <input type="text" name="lname" class="form-control" placeholder="Last Name" required>
+                            <label for="lname">Nom</label>
+                            <input type="text" name="lname" class="form-control" placeholder="Nom" required>
                         </div>
                     </div>
                     <div class="my-2">
@@ -38,34 +38,34 @@
                         <input type="email" name="email" class="form-control" placeholder="E-mail" required>
                     </div>
                     <div class="my-2">
-                        <label for="phone">Phone</label>
-                        <input type="tel" name="phone" class="form-control" placeholder="Phone" required>
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" name="phone" class="form-control" placeholder="Téléphone" required>
                     </div>
                     <div class="my-2">
-                        <label for="post">Post</label>
-                        <input type="text" name="post" class="form-control" placeholder="Post" required>
+                        <label for="post">Fonction</label>
+                        <input type="text" name="post" class="form-control" placeholder="Fonction" required>
                     </div>
                     <div class="my-2">
-                        <label for="avatar">Select Avatar</label>
+                        <label for="avatar">Choisir un Avatar</label>
                         <input type="file" name="avatar" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="add_employee_btn" class="btn btn-primary">Add Employee</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="submit" id="add_employee_btn" class="btn btn-primary">Ajouter</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-{{-- add new employee modal end --}}
+{{-- Fin du modul Ajout employé(e)s --}}
 
-{{-- edit employee modal start --}}
+{{-- Début Edition des Employé(e)s --}}
 <div class="modal fade" id="editEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Employee</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editer Employé(e)</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="#" method="POST" id="edit_employee_form" enctype="multipart/form-data">
@@ -75,12 +75,12 @@
                 <div class="modal-body p-4 bg-light">
                     <div class="row">
                         <div class="col-lg">
-                            <label for="fname">First Name</label>
-                            <input type="text" name="fname" id="fname" class="form-control" placeholder="First Name" required>
+                            <label for="fname">Prénom</label>
+                            <input type="text" name="fname" id="fname" class="form-control" placeholder="Prénom" required>
                         </div>
                         <div class="col-lg">
-                            <label for="lname">Last Name</label>
-                            <input type="text" name="lname" id="lname" class="form-control" placeholder="Last Name" required>
+                            <label for="lname">Nom</label>
+                            <input type="text" name="lname" id="lname" class="form-control" placeholder="Nom" required>
                         </div>
                     </div>
                     <div class="my-2">
@@ -88,15 +88,15 @@
                         <input type="email" name="email" id="email" class="form-control" placeholder="E-mail" required>
                     </div>
                     <div class="my-2">
-                        <label for="phone">Phone</label>
-                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone" required>
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="Téléphone" required>
                     </div>
                     <div class="my-2">
-                        <label for="post">Post</label>
-                        <input type="text" name="post" id="post" class="form-control" placeholder="Post" required>
+                        <label for="post">Fonction</label>
+                        <input type="text" name="post" id="post" class="form-control" placeholder="Fonction" required>
                     </div>
                     <div class="my-2">
-                        <label for="avatar">Select Avatar</label>
+                        <label for="avatar">Choisi un Avatar</label>
                         <input type="file" name="avatar" class="form-control">
                     </div>
                     <div class="mt-2" id="avatar">
@@ -104,16 +104,17 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="edit_employee_btn" class="btn btn-success">Update Employee</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="submit" id="edit_employee_btn" class="btn btn-success">Mise à jour</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-{{-- edit employee modal end --}}
+{{-- Fin Edition des Employé(e)s--}}
 
-<body class="bg-light">
+<body style="background:blue">
+    <marquee style="color:lightyellow">Programmation Mr CHAIBDRAA M.</marquee>
     <div class="container">
         <div class="row my-5">
             <div class="col-lg-12">
@@ -142,7 +143,7 @@
                 const fd = new FormData(this);
                 $("#add_employee_btn").text('Adding...');
                 $.ajax({
-                    url: "{{ route('store') }}",
+                    url: "{{ route('store')}}",
                     method: 'post',
                     data: fd,
                     cache: false,
@@ -153,7 +154,7 @@
                         if (response.status == 200) {
                             Swal.fire(
                                 'Added!',
-                                'Employe(e) ajouté avec succes!',
+                                'Employee Added Successfully!',
                                 'success'
                             )
                             fetchAllEmployees();
@@ -196,7 +197,7 @@
                 const fd = new FormData(this);
                 $("#edit_employee_btn").text('Updating...');
                 $.ajax({
-                    url: "{{ route('update') }}",
+                    url: "{{ route('update')}}",
                     method: 'post',
                     data: fd,
                     cache: false,
@@ -206,8 +207,8 @@
                     success: function(response) {
                         if (response.status == 200) {
                             Swal.fire(
-                                'Mis à jour',
-                                'Employe(e) mis(e) à jour avec succès!',
+                                'Updated!',
+                                'Employee Updated Successfully!',
                                 'success'
                             )
                             fetchAllEmployees();
@@ -220,23 +221,23 @@
             });
 
             // delete employee ajax request
-            $(document).On('click', '.deleteIcon', function(e) {
+            $(document).on('click', '.deleteIcon', function(e) {
                 e.preventDefault();
                 let id = $(this).attr('id');
                 let csrf = '{{ csrf_token() }}';
                 Swal.fire({
-                    title: 'Etes-vous sûre ?',
-                    text: "Vous ne pourrez plus revenir en arrière!",
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Oui, effacer !'
+                    confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
                             url: "{{ route('delete') }}",
-                            method: 'post',
+                            method: 'delete',
                             data: {
                                 id: id,
                                 _token: csrf
@@ -244,8 +245,8 @@
                             success: function(response) {
                                 console.log(response);
                                 Swal.fire(
-                                    'Effacé',
-                                    'La fiche a été effacée !',
+                                    'Deleted!',
+                                    'Your file has been deleted.',
                                     'success'
                                 )
                                 fetchAllEmployees();
